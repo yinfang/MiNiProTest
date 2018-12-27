@@ -1,0 +1,17 @@
+<!--pages/details/children/add-to-booklist.wxml-->
+<import src="/templates/page-status-indicator/index" />
+<view class="ui-label">书单</view>
+<view class='weui-panel bg-panel book-panel' hover-class="ui--active">
+  <picker class='book-info' range="{{actionList}}" value='selectedIndex'>
+    <view class="font-black-30">{{actionList[selectedIndex]}}</view>
+  </picker>
+  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</view>
+<view class="ui-label">图书描述</view>
+<view class='weui-cells weui-cells_after-title'>
+  <view class='weui-cell__bd  bg-panel'>
+    <textarea class="font-gray-34 weui-textarea" maxlength="200" placeholder='请输入图书描述（可选）' adjust-position="true" bindinput="onInput" />
+    <view class="weui-textarea-counter">{{texts.length}}/200</view>
+  </view>
+</view>
+<button type='primary' bindtap="confirm" style='margin:20px;'>确认</button>

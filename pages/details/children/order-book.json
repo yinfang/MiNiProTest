@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "图书订阅",
+    "usingComponents": {
+        "popup": "/components/popup/index"
+    }
+}

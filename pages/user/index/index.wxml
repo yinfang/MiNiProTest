@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class='page-con'>
+  <image class='bg-img' src="../../../images/bg_index.jpg" />
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.HeadImg}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.MemberName}}</text>
+      <text class="userinfo-nickname">{{userInfo.Telphone}}</text>
+    </block>
+  </view>
+  <view class="buttons">
+    <block wx:for="{{titles}}" wx:key="id">
+      <navigator url='../../{{item.page}}/{{item.page}}?index={{item.index}}'>
+        <button class="btn" type='default'>{{item.title}}
+          <a class='btn-des'> {{item.des}}</a>
+        </button>
+      </navigator>
+    </block>
+  </view>
+</view>

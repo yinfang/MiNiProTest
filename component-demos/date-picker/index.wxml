@@ -1,0 +1,2 @@
+<!--component-demos/date-picker/date-picker.wxml-->
+<date-picker  bindchange='getChange'></date-picker>

@@ -1,0 +1,3 @@
+/* pages/details/children/add-to-booklist.wxss */
+
+@import "../buy-detail.wxss"

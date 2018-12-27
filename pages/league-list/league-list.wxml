@@ -1,0 +1,43 @@
+<view class="navbar">
+  <block wx:for="{{tabs}}" wx:key="*this">
+    <view id="{{index}}" class="weui-navbar__item {{tabIndex == index ? 'nav-bar__item_on' : ''}}" bindtap="tabClick">
+      <view class="weui-navbar__title">{{item}}</view>
+    </view>
+  </block>
+</view>
+<!-- 小团体课 -->
+<view class='contain' wx:if="{{tabIndex==0}}">
+  <block wx:for="{{groupList}}" wx:key="">
+    <view class="cells">
+      <image class="img" src="../../images/ic_logo.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      <view class="cell-center">
+        <view class="font-30">{{item.GoodName}}</view>
+        <view class="font-gray-28">{{item.CoachName}}</view>
+        <view class="font-black-26">
+          <span class=" font-26 color-orange">￥{{item.DiscountsPrice}}</span>
+          {{item.UseTimes}}课次</view>
+      </view>
+      <view class="cell-right">
+        <button class="orange-border-btn" type="default" bindtap="goDetail">详情</button>
+        <view class="font-black-26">还可购买{{item.BuyLimitNum}}人 </view>
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 免费团课 -->
+<view class='container' wx:else hidden="{{isFreeCourse}}">
+  <block wx:for='{{freeList}}'>
+    <image src="../../images/ic_logo.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+
+    <view class="cell-center">
+      <view class="font-30">{{item.GoodName}}</view>
+      <view class="font-gray-28">{{item.CoachName}}</view>
+      <view class="font-black-26">
+        <span class=" font-26 color-orange">￥{{item.DiscountsPrice}}</span> {{item.UseTimes}}课次</view>
+    </view>
+    <view class="cell-right">
+      <button class="orange-border-btn" type="default" bindtap="goDetail">详情</button>
+      <view class="font-black-26">还可购买{{item.BuyLimitNum}}人 </view>
+    </view>
+  </block>
+</view>

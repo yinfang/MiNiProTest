@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/user/login/login",
+    "pages/logs/logs",
+    "pages/user/index/index",
+    "pages/user/regist/regist",
+    "pages/coach-list/coach-list",
+    "pages/coach-list/children/coach-detail",
+    "pages/league-list/league-list",
+    "pages/center/center",
+    "templates/page-status-indicator/index",
+    "pages/league-list/children/league-detail",
+    "pages/center/children/my-buy",
+    "pages/center/children/my-booking",
+    "pages/center/children/my-info",
+    "pages/center/children/my-bodytest",
+    "pages/center/children/my-contract",
+    "pages/center/children/my-setting",
+    "pages/details/buy-detail",
+    "pages/details/children/detail-info",
+    "pages/details/children/add-book",
+    "pages/details/children/see-comment",
+    "pages/details/children/order-book",
+    "pages/details/children/search-library",
+    "component-demos/date-picker/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

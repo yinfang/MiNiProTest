@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "评论列表",
+    "usingComponents": {
+        "load-more": "/components/load-more/index",
+        "rate": "/components/rate/index",
+        "popup": "/components/popup/index",
+        "async-button": "/components/async-button/index",
+        "toast": "/components/toast/index",
+        "toptip": "/components/toptip/index"
+    }
+}

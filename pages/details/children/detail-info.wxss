@@ -1,0 +1,126 @@
+/* pages/center/children/children/detail-info.wxss */
+
+page {
+    background-color: whitesmoke;
+}
+
+.bg-panel {
+    background-color: white;
+    padding: 10px;
+}
+
+.cell-title {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-panel {
+    display: flex;
+    align-items: center;
+}
+
+.book-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.book-item {
+    width: 25vw;
+    margin: 5px;
+    text-align: left;
+}
+
+.book-item-img {
+    width: 25vw;
+    height: 35vw;
+}
+
+.foot-areas {
+    position: fixed;
+    bottom: 0rpx;
+    right: 0rpx;
+    left: 0rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100rpx;
+    border-top: 1px solid #e5e5e5;
+    background-color: white;
+}
+
+.foot-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.foot-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #ddd;
+}
+
+.foot-item-img {
+    padding-top: 10rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.menubar__btn {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+    height: 100rpx;
+    font-size: 36rpx;
+    line-height: 100rpx;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.menubar__btn ::after {
+    border: none;
+}
+
+.library-items {
+    max-height: 50vh;
+    width: 100%;
+}
+
+.library-item-titles {
+    flex: auto;
+    overflow: hidden;
+    /* 必须有这一行，否则不会有省略号 */
+}
+
+.library-item-title {
+    display: flex;
+    align-items: center;
+}
+
+.library-item-img {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-left: 10rpx;
+}
+
+.library-item__collection {
+    flex: none;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: baseline;
+}

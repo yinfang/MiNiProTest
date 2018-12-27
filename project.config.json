@@ -1,0 +1,98 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx49b3adae3173666a",
+	"projectname": "YingLan",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "注册",
+					"pathName": "pages/user/regist/regist",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "我的购买订单详情",
+					"pathName": "pages/details/buy-detail",
+					"query": "code=67"
+				},
+				{
+					"id": 2,
+					"name": "日期选择（精确到分秒）",
+					"pathName": "component-demos/date-picker/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "首页",
+					"pathName": "pages/user/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/center/center",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "Echarts",
+					"pathName": "pages/center/children/my-booking",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "图书详情",
+					"pathName": "pages/details/children/detail-info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评论列表",
+					"pathName": "pages/details/children/see-comment",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "wx-charts",
+					"pathName": "pages/center/children/my-bodytest",
+					"query": ""
+				}
+			]
+		}
+	}
+}

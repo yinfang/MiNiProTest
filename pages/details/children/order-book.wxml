@@ -1,0 +1,37 @@
+<!--pages/details/children/order-book.wxml-->
+<import src="../../../templates/page-status-indicator/index" />
+<template data="{{pageStatus}}" is="page-status-indicator"></template>
+<block wx:if="{{pageStatus == 'done'}}">
+    <view class="font-gray-26 cell-title">图书信息</view>
+    <view class="weui-panel bg-panel book-panel">
+        <image class="book-img" src="{{book.imgs.small}}" mode="widthFix" lazy-load="true"></image>
+        <view class="book-info" hover-class="btn">
+            <view class="font-black-30">{{book.title}}</view>
+            <view class="font-gray-26">评分：<text class="font-26 color-orange">{{book.total_score}}</text>({{order.book.total_num}}条评论)</view>
+            <view class="font-gray-26">作者：{{book.author[0]}}</view>
+            <view class="font-gray-26">出版社：{{book.publisher}}</view>
+            <view class="font-gray-26">出版日期：{{book.pubdate}}</view>
+            <view class="font-gray-26">ISBN：{{book.isbn}}</view>
+        </view>
+    </view>
+
+    <view class="font-gray-26 cell-title">图书馆信息</view>
+    <view class="weui-panel bg-panel" bindtap="toSeeMap">
+        <text class="font-black-30">{{librarys[0].library.name}}</text>
+        <image class="library-img" wx:if="{{librarys[0].library.status}}" src="../../../images/icon_certificated.png" mode="aspectFill"></image>
+        <image class="library-img" wx:else src="../../../images/icon_uncertificated.png" mode="aspectFill"></image>
+        <view class="font-gray-26 address-info ellipsis">地址：{{librarys[0].library.address}}</view>
+    </view>
+    <view class="font-gray-26 cell-title">请选择取书日期(最晚日期：{{lastestDate}}})</view>
+    <view class="weui-panel bg-panel book-panel">
+        <picker mode="date" class="weui-cell__bd font-black-30" value="{{appointedDate}}" start="startDate" end="lastestDate" bindchange="bindDateChange">
+            <view>取书日期：{{appointedDate}}</view>
+        </picker>
+        <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+    </view>
+    <button type="primary" style="margin:20px;" bindtap="submitOrder">确认预订</button>
+</block>
+
+<popup title="百度地图" hide-text="关闭" show="{{showPopup}}" bindhide="onHidePopup">
+    <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+</popup>

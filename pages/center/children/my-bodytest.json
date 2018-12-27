@@ -1,0 +1,4 @@
+{"navigationBarTitleText": "wx-charts",
+  "usingComponents": {
+    "popup": "/components/popup/index"
+  }}

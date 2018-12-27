@@ -1,0 +1,9 @@
+/* pages/details/children/order-book.wxss */
+
+@import '../buy-detail.wxss';
+.library-img {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-left: 10rpx;
+}

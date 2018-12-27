@@ -1,0 +1,37 @@
+/* pages/center/children/children/buy-detail.wxss */
+
+page {
+    background-color: whitesmoke;
+}
+
+.cell-title {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.bg-panel {
+    background-color: white;
+    padding: 10px;
+}
+
+.book-panel {
+    display: flex;
+    align-items: center;
+}
+
+.book-img {
+    width: 30vw;
+    margin-right: 10px;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.address-info {
+    text-overflow: ellipsis;
+}
+
+.btn-area {
+    margin: 20px;
+}

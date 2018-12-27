@@ -1,0 +1,57 @@
+/* pages/league-list/league-list.wxss */
+
+.contain {
+  margin-top: 50px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  width: 100%;
+}
+
+.nav-bar__item_on {
+  border-bottom: 3rpx green solid;
+  margin: 0rpx 15rpx;
+}
+
+.cells {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1rpx solid #ececec;
+  color: #6d6d6d;
+  justify-content: space-between;
+  padding: 15rpx ;
+}
+
+.img {
+  width: 30vw;
+  height: 20vw;
+  align-self: center;
+}
+
+.orange-border-btn {
+  width: 20vw;
+  height: 10vw;
+  color: orange;
+  text-align: center;
+  align-content: center;
+  border: 1rpx orange solid;
+  border-radius: 20rpx;
+  margin-bottom: 15rpx;
+}
+
+.cell-center {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+ 
+.cell-right{
+margin-right: 25rpx;
+}

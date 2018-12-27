@@ -1,0 +1,7 @@
+/* pages/center/children/my-booking.wxss */
+
+.cavers-container {
+    width: 100%;
+    height: 300px;
+    font-family: Helvetica, Arial, "Helvetica Neue", "Droid Sans", "Microsoft YaHei", sans-serif;
+}

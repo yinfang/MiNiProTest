@@ -1,0 +1,9 @@
+<search-bar default-text="搜索私教" focus-text="私教姓名" bindsearch="onSearch">
+</search-bar>
+<no-data></no-data>
+<view class="weui-cell">
+    <navigator url="../coach-detail/coach-detail?coachCode=={{item.Code}}" wx:for="{{lists}}" wx:key="" hover-class="navigator-hover" open-type="navigate">
+        <image class="weui-grid__icon " src="{{item.image}}" />
+        <view>{{item.coachname}}</view>
+    </navigator>
+</view>

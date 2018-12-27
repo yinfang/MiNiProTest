@@ -1,0 +1,32 @@
+<!--pages/center/children/my-buy.wxml-->
+
+<view class="navbar">
+    <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{tabIndex == index ? 'nav-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+        </view>
+    </block>
+</view>
+
+<scroll-view class='scroll' scroll-y>
+    <view class="lists">
+        <block wx:for="{{lists}}" wx:key="">
+            <view class="weui-panel">
+                <view class="weui-panel__hd   flex-nowrap">
+                    <view style='flex:1;'>订单编号：{{item.code}}</view>
+                    <view class="color-orange">{{item.states==0?"待上课":"已失效"}}</view>
+                </view>
+                <view class="weui-panel__hd">
+                    <view>课程名称：{{item.courseName}}</view>
+                    <view>
+                        <text decode='true'>教&emsp;&emsp;练：{{item.coachName}}</text>
+                    </view>
+                    <view>
+                        <text decode='true'>价&emsp;&emsp;格：￥{{item.price}}</text>
+                    </view>
+                </view>
+                <button class="btn-orange"   bindtap='goDetail'> 查看</button>
+            </view>
+        </block>
+    </view>
+</scroll-view>

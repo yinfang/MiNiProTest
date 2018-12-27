@@ -1,0 +1,57 @@
+<!--pages/center/children/my-bodytest.wxml-->
+<view class="weui-cell">
+  <view class="user-info-img">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="font-black-30 user-name">
+    <open-data type="userNickName"></open-data>
+    <view class="weui-cell__bd">
+      <open-data type="userGender" lang="zh_CN"></open-data>
+    </view>
+    <view class="weui-cell__bd">
+      <!-- <open-data type="userCountry" lang="zh_CN"></open-data>● -->
+      <open-data type="userProvince" lang="zh_CN"></open-data>●
+      <open-data type="userCity" lang="zh_CN"></open-data>
+    </view>
+  </view>
+  <view style='display:block;margin-left:20px;'>
+    <picker mode="date" class="weui-cell__bd font-black-30" value="{{selectedDate}}" start="{{startDate}}" end="{{lastestDate}}" bindchange="bindDateChange">
+      <view>选择日期：{{selectedDate}}</view>
+    </picker>
+    <view class="weui-cell__bd font-black-30" bindtap='showCoverView'>显示CoverView</view>
+    <view class="weui-cell__bd font-black-30" bindtap='showMap'>显示地图</view>
+    <view class="weui-cell__bd font-black-30" bindtap='showSheet'>显示ActionSheet</view>
+  </view>
+</view>
+
+<!--  disable-scroll="true" 在图表内滚动时，禁止界面滚动 -->
+<view class="cavers-container">
+  <canvas canvas-id="lineCanvas" class="canvas" style="height:200px" disable-scroll="{{false}}" bindtouchstart="lineTouchHandler" bindtouchmove="lineMoveHandler" bindtouchend="lineTouchEndHandler"></canvas>
+</view>
+<view class="cavers-container">
+  <canvas canvas-id="areaCanvas" class="canvas" style="height:200px" disable-scroll="{{false}}" bindtouchstart="areaTouchHandler" bindtouchmove="areaMoveHandler" bindtouchend="areaTouchEndHandler"></canvas>
+</view>
+<view class="cavers-container">
+  <view class="titles">
+    <view wx:if="{{!isMainChartDisplay}}" bindtap="backToMainChart">返回</view>
+    <view class="title">{{chartTitle}}</view>
+  </view>
+  <canvas canvas-id="columnCanvas" class="canvas" style="height:200px" bindtouchstart="columnTouchHandler"></canvas>
+</view>
+<view class="cavers-container">
+  <canvas canvas-id="pieCanvas" class="canvas" style="height:300px" bindtouchstart="pieTouchHandler"></canvas>
+</view>
+<view class="cavers-container">
+  <canvas canvas-id="ringCanvas" class="canvas" style="height:300px" bindtouchstart="ringTouchHandler"></canvas>
+</view>
+
+<cover-view class='map-cover' hidden="{{!showCoverView}}">
+  <cover-view style='display:flex; margin:10px;'>
+    <cover-view class="weui-cell__bd font-black-30">百度地图</cover-view>
+    <cover-view class="font-30 color-green" bindtap='closeCoverView'>关闭</cover-view>
+  </cover-view>
+  <cover-image src='../../../images/bg_index.jpg' />
+</cover-view>
+
+
+<map id="map" class='map-cover' hidden="{{!showMap}}" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>

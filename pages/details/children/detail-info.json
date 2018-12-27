@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "图书详情",
+    "backgroundColor": "#FFFFFF",
+    "usingComponents": {
+        "no-data": "/components/no-data/index",
+        "popup": "/components/popup/index"
+    }
+}

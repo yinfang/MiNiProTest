@@ -1,0 +1,114 @@
+<!--pages/center/children/children/detail-info.wxml-->
+<view class="page" wx:if="{{!noData}}">
+    <view class="weui-panel bg-panel book-panel">
+        <view class="book-info">
+            <view class="font-black-30">{{bookList.title}}</view>
+            <view class="font-gray-26">评分：
+                <text class="font-26 color-orange">{{bookList.total_score}}</text>({{bookList.total_num}}条评论)</view>
+            <view class="font-gray-26">作者：{{bookList.author[0]}}</view>
+            <view class="font-gray-26">译者：{{bookList.translator[0]}}</view>
+            <view class="font-gray-26">出版社：{{bookList.publisher}}</view>
+            <view class="font-gray-26">出版日期：{{bookList.pubdate}}</view>
+            <view class="font-gray-26">分类号：{{bookList.class_num}}</view>
+            <view class="font-gray-26">索书号：{{bookList.call_number}}</view>
+            <view class="font-gray-26">页数：{{bookList.page}}页</view>
+            <view class="font-gray-26">字数：约{{bookList.word}}字</view>
+            <view class="font-gray-26">ISBN：{{bookList.isbn}}</view>
+        </view>
+        <image style="width: 40vw;" src="{{bookList.imgs.small}}" mode="widthFix" lazy-load="true" bindtap="onPreview"></image>
+    </view>
+    <view class="font-gray-26 cell-title">馆藏信息</view>
+    <view class="weui-panel bg-panel book-panel" hover-class="ui--active" bindtap="onShowPopup">
+        <view class="font-black-26 book-info">共有
+            <span class="color-green"> {{bookList.available_num}}
+            </span>本可借
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="font-gray-26 cell-title">内容简介</view>
+    <view class="weui-panel bg-panel">
+        <view class="font-black-26 pre-wrap">{{bookList.introduction|| "暂无内容简介"}}</view>
+    </view>
+    <view class="font-gray-26 cell-title">作者简介</view>
+    <view class="weui-panel bg-panel">
+        <view class="font-black-26 pre-wrap">{{bookList.author_intro|| "暂无作者简介"}}</view>
+    </view>
+    <view class="font-gray-26 cell-title">译者简介</view>
+    <view class="weui-panel bg-panel">
+        <view class="font-black-26 pre-wrap">{{bookList.translator_intro|| "暂无译者简介"}}</view>
+
+    </view>
+    <view class="font-gray-26 cell-title">目录</view>
+    <view class="weui-panel bg-panel ">
+        <view class="font-black-26 pre-wrap">{{bookList.catalog|| "暂无目录"}}</view>
+    </view>
+    <view class="font-gray-26 cell-title">试读</view>
+    <view class="weui-panel bg-panel ">
+        <view class="font-black-26 pre-wrap">{{bookList.preview|| "暂无试读"}}</view>
+    </view>
+    <view class="font-gray-26 cell-title">相关图书</view>
+    <view class="weui-panel bg-panel">
+        <scroll-view scroll-x>
+            <view class="book-items" wx:if="{{bookList.relevant_books}}">
+                <navigator class="book-item" url="#" wx:for="{{bookList.relevant_books}}" wx:key="" hover-class="ui--active">
+                    <image class="book-item-img" src="{{item.imgs.small}}" mode="aspectFill" />
+                    <view class="font-black-30">{{item.title}}</view>
+                    <view class="font-gray-26 ellipsis">{{item.author}}</view>
+                </navigator>
+            </view>
+            <view wx:else>暂无</view>
+        </scroll-view>
+    </view>
+
+    <view class="font-gray-26 cell-title">包含这本书的书单</view>
+    <view class="weui-panel bg-panel">
+        <scroll-view scroll-x>
+            <view class="book-items" wx:if="{{bookList.relevant_booklists}}">
+                <navigator class="book-item" url="#" wx:for="{{bookList.relevant_booklists}}" wx:key="" hover-class="ui--active">
+                    <image class="book-item-img" src="{{item.image}}" mode="aspectFill" />
+                    <view class="font-black-30 ellipsis-l2">{{item.title}}</view>
+                </navigator>
+            </view>
+            <view wx:else>暂无</view>
+        </scroll-view>
+    </view>
+    <view class="font-26 color-blue" bindtap="showToast" style="margin:10px 0rpx 120rpx 0rpx;text-align: center;">对本页内容有疑问？</view>
+
+    <!-- 底部按钮 -->
+    <view class="foot-areas">
+        <view class="book-info">
+            <view class="foot-items">
+                <navigator class="foot-item" url="{{item.url}}" wx:for="{{foots}}" wx:key="" hover-class="ui--active">
+                    <image class="foot-item-img" src="{{item.icon}}" mode="widthFix" />
+                    <view class="font-gray-26">{{item.title}}</view>
+                </navigator>
+            </view>
+        </view>
+        <button class="book-info menubar__btn" type="primary" bindtap="orderBook">借阅此书</button>
+    </view>
+
+    <!-- 藏书图书馆列表 底部弹出的popWindow -->
+    <popup id="1" title="请选择图书馆" hide-text="取消" show="{{showPopup}}" bindhide="onHidePopup">
+        <scroll-view class="library-items" scroll-y>
+            <navigator url="../children/order-book?library_id={{item.library.id}}" wx:for="{{libraryList}}" wx:key='' class="weui-cell" hover-class="ui--active">
+                <view class="library-item-titles">
+                    <view class="library-item-title">
+                        <view class="font-black-34 ellipsis">{{item.library.name}}</view>
+                        <image class="library-item-img" wx:if="{{item.library.status}}" src="../../../images/icon_certificated.png" mode="aspectFill"></image>
+                        <image class="library-item-img" wx:else src="../../../images/icon_uncertificated.png" mode="aspectFill"></image>
+                    </view>
+                    <view class="font-gray-26 ellipsis">{{item.library.address}}</view>
+                </view>
+                <view class="font-gray-26 library-item__collection">馆藏：{{item.total_num}} | 可借：<text class="color-orange">{{item.available_num}}</text></view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator class="weui-cell" hover-class="ui--active" url="../children/search-library?datas={{libraryList}}">
+                <view class="weui-cell__bd font-26 color-blue" bindtap="goSearchLib">查看所有图书馆</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </scroll-view>
+    </popup>
+
+
+</view>
+<no-data wx:else text="页面被歪星人绑架啦(T＿T) \n 先去别处逛逛吧！"></no-data>

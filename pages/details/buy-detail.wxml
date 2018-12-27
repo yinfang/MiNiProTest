@@ -1,0 +1,34 @@
+<!--pages/center/children/children/buy-detail.wxml-->
+<view wx:if="{{!noData}}">
+    <view class="font-gray-26 cell-title">订单信息</view>
+    <view class="weui-panel bg-panel">
+        <view class="font-black-30">订单状态：<span class="font-30 color-green">{{order.status_text}}</span></view>
+        <view class="font-gray-26">订单编号：{{order.id}}</view>
+        <view class="font-gray-26">订单创建日期：{{order.created_at}}</view>
+    </view>
+    <view class="font-gray-26 cell-title">图书信息</view>
+    <navigator url="../details/children/detail-info" class="weui-panel bg-panel book-panel" hover-class="ui--active">
+        <image class="book-img" src="{{order.book.imgs.small}}" mode="widthFix" lazy-load="true"></image>
+        <view class="book-info" hover-class="btn">
+            <view class="font-black-30">{{order.book.title}}</view>
+            <view class="font-gray-26">评分：<text class="font-26 color-orange">{{order.book.total_score}}</text>({{order.book.total_num}}条评论)</view>
+            <view class="font-gray-26">作者：{{order.book.author[0]}}</view>
+            <view class="font-gray-26">出版社：{{order.book.publisher}}</view>
+            <view class="font-gray-26">出版日期：{{order.book.pubdate}}</view>
+            <view class="font-gray-26">ISBN：{{order.book.isbn}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <view class="font-gray-26 cell-title">图书馆信息</view>
+    <view class="weui-panel bg-panel book-panel">
+        <view class="book-info" hover-class="btn">
+            <view class="font-black-30">{{order.library.name}}</view>
+            <view class="font-gray-26 address-info">地址：{{order.library.address}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="btn-area">
+        <button type="default" class="weui-btn" style="background-color:white;">取消订单</button>
+    </view>
+</view>
+<no-data wx:else text="页面被歪星人绑架啦(T＿T) \n 先去别处逛逛吧！"></no-data>

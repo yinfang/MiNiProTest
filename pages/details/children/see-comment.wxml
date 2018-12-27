@@ -1,0 +1,42 @@
+<!--pages/details/children/see-comment.wxml-->
+<import src="/templates/page-status-indicator/index" />
+<toptip id="toptip"></toptip>
+<block wx:if="{{commentList.length>0}}">
+    <view class="con-tb">
+        <view class="font-black-30 weui-cell__bd">评论</view>
+        <button size="mini" type="primary" class="font-28" plain bindtap="writeComment">发表评论</button>
+    </view>
+    <view class="con-bd ">
+        <view class="weui-cell" wx:for="{{commentList}}" wx:key="">
+            <image class="ui-review-card__avatar" src="{{item.user.avatar}}" mode="aspectFill"></image>
+            <view class="weui-cell__bd">
+                <text class="font-black-26"> {{item.user.nickname}} </text>
+                <view class="ui-review-card__rate ">
+                    <rate value="{{item.score}}" star-size="26" unit="rpx" disabled></rate>
+                </view>
+                <view class="font-black-26" auto-height>{{item.content}} </view>
+            </view>
+            <view class="delete-btn font-gray-26" bindtap="doDelete">删除</view>
+        </view>
+    </view>
+    <!-- 加载更多、暂无数据 -->
+    <load-more status="{{loadMoreStatus}}" loading-text="努力加载中" nomore-text="没有更多评论了"></load-more>
+</block>
+<!-- 暂无评论 -->
+<template wx:else is="page-empty" data="{{message: '暂无评论，快来做第一个评论的人吧', btnText: '发表评论'}}"></template>
+
+<popup show="{{popup.show}}" title="添加评论" hide-text="关闭" bindhide="onHidePopup">
+    <view class="popup-style">
+        <view class="font-gray-30 popup-title">{{popup.label[popup.score]}}</view>
+        <view class="popup-score">
+            <rate value="{{popup.score}}" gutter-size="7" bindchange="onChange"></rate>
+        </view>
+        <view class="popup-textarea">
+            <textarea class="weui-textarea" style="height: 3.3em" placeholder="写几句评论吧" maxlength="200" auto-focus="true" bindinput="onInput"></textarea>
+            <view class="weui-textarea-counter">{{popup.content.length}}/200</view>
+        </view>
+        <view class="btn-submit">
+            <async-button text="发表评论" loading="{{popup.loading}}" bindtap="onSubmit"></async-button>
+        </view>
+    </view>
+</popup>
